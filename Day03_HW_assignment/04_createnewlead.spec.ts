@@ -38,10 +38,16 @@ test("create a new lead", async () => {
 
     await page.fill('.inputBox', 'tcs');
 
-    await page.fill('#createLeadForm_firstNameLocal', 'aroun');
+    await page.fill('#createLeadForm_firstNameLocal', 'aroun1');
 
-    await page.fill('[name = lastNameLocal]', 'kumar');
+    await page.fill('[name = lastNameLocal]', 'kumar1');
 
     await page.locator('[value="Create Lead"]').click();
+
+    await page.waitForLoadState("load");
+
+    const title = await page.title();
+    
+    console.log('the page is ' + title);
 
 })

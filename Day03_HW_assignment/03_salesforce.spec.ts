@@ -23,21 +23,24 @@ test("launch the salesforce application", async () => {
 
     await page.fill("#username", "pranavrajaroun@testleaf.com");
 
-    test.setTimeout(40000);
-
+    //test.setTimeout(40000);
+    await page.waitForLoadState("load");
+    
     await page.fill("#password", "Automation@2023");
 
     await page.locator('//input[@id="Login"]').click();
 
-    test.setTimeout(30000);
+    //test.setTimeout(30000);
+
+    await page.waitForLoadState("load");
 
     const title = await page.title();
 
-    console.log('the page title is + ${title}');
+    console.log('the page title is  '  + title);
 
     const url = page.url();
 
-    console.log('the page url is "+ ${url}');
+    console.log('the page url is  '  + url);
 
 });
 
